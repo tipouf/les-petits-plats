@@ -1,0 +1,40 @@
+
+@function rem($pixels) {
+    @return #{$pixels / 16}rem;
+  }
+  
+  :root {
+    --yellow: #f5c518;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  i {
+    font-style: normal;
+    margin-left: 5px;
+  }

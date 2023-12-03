@@ -1,0 +1,21 @@
+$main-color: yellow;
+$secondary-color: red;
+
+$font-anton: "anton";
+$font-manrope: "manrope";
+
+$primary-font: $font-anton;
+$secondary-font: $font-manrope;
+
+
+@font-face {
+    font-family: "anton";
+    src: url("../fonts/Anton-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "manrope";
+    src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+  }
+
+
+  
