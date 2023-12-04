@@ -34,73 +34,123 @@
     </header>
     <main>
       <section class="filter-container container">
-        <div class="'dropdown-1">
-          <div class="dropdown-1__btn">Ingrédients<i class="fa fa-caret-down"></i></div>
-          <div class="dropdown-1__content">
-            <input type="text" placeholder="Rechercher un ingrédient" />
-            <a href="#">Catégorie 1</a>
-            <a href="#">Catégorie 2</a>
-            <a href="#">Catégorie 3</a>
+        <div class="dropdown-1">
+          <div class="dropdown-1__btn" aria-hidden="false" tabindex="0">
+            <div class="dropdown-1__btn-container">
+              <div class="dropdown-1__btn-text">Ingrédients</div>
+              <i class="fa fa-angle-down" id="angleIcon1"></i>
+            </div>
+            <div class="dropdown-1__content">
+              <div class="dropdown-1__content__inputContainer">
+                <input type="text" placeholder="" id="myIngredientInput" autocomplete="off" />
+                <i class="fa fa-search"></i>
+              </div>
+              <a href="#">Catégorie 1</a>
+              <a href="#">Catégorie 2</a>
+              <a href="#">Catégorie 3</a>
+            </div>
           </div>
         </div>
-        <div class="'dropdown-1">
-          <div class="dropdown-1__btn">Ingrédients<i class="fa fa-caret-down"></i></div>
-          <div class="dropdown-1__content">
-            <a href="#">Catégorie 1</a>
-            <a href="#">Catégorie 2</a>
-            <a href="#">Catégorie 3</a>
+        <div class="dropdown-2">
+          <div class="dropdown-2__btn" aria-hidden="false" tabindex="0">
+            <div class="dropdown-2__btn-container">
+              <div class="dropdown-2__btn-text">Appareils</div>
+              <i class="fa fa-angle-down" id="angleIcon2"></i>
+            </div>
+            <div class="dropdown-2__content">
+              <div class="dropdown-2__content__inputContainer">
+                <input type="text" placeholder="" id="myDeviceInput" autocomplete="off"/>
+                <i class="fa fa-search"></i>
+              </div>
+              <a href="#">Catégorie 1</a>
+              <a href="#">Catégorie 2</a>
+              <a href="#">Catégorie 3</a>
+            </div>
           </div>
         </div>
-        <div class="'dropdown-1">
-          <div class="dropdown-1__btn">Ingrédients<i class="fa fa-caret-down"></i></div>
-          <div class="dropdown-1__content">
-            <a href="#">Catégorie 1</a>
-            <a href="#">Catégorie 2</a>
-            <a href="#">Catégorie 3</a>
+        <div class="dropdown-3">
+          <div class="dropdown-3__btn" aria-hidden="false" tabindex="0">
+            <div class="dropdown-3__btn-container">
+              <div class="dropdown-3__btn-text">Ustensils</div>
+              <i class="fa fa-angle-down" id="angleIcon3"></i>
+            </div>
+            <div class="dropdown-3__content">
+              <div class="dropdown-3__content__inputContainer">
+                <input type="text" placeholder="" id="myUstensilInput" autocomplete="off" />
+                <i class="fa fa-search"></i>
+              </div>
+              <a href="#">Catégorie 1</a>
+              <a href="#">Catégorie 2</a>
+              <a href="#">Catégorie 3</a>
+            </div>
           </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
       <section id="recipes" class="recipes-container container">
-        <article class="recipe">
-          <h2>Recette 1</h2>
-          <img src="./assets/images/Recette01.jpg" alt="Recette 1" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis, laborum.
-          </p>
-        </article>
-        <article class="recipe">
-          <h2>Recette 2</h2>
+        <article class="card">
           <img src="./assets/images/Recette02.jpg" alt="Recette 2" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis, laborum.
-          </p>
+          <div class="card__content">
+            <h2 class="card__title">Recette 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis, laborum.
+            </p>
+          </div>
         </article>
-        <article class="recipe">
-          <h2>Recette 3</h2>
-          <img src="./assets/images/Recette03.jpg" alt="Recette 3" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis, laborum.
-          </p>
+        <article class="card">
+          <img src="./assets/images/Recette02.jpg" alt="Recette 2" />
+          <div class="card__content">
+            <h2 class="card__title">Recette 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis, laborum.
+            </p>
+          </div>
         </article>
+        <article class="card">
+          <img src="./assets/images/Recette02.jpg" alt="Recette 2" />
+          <div class="card__content">
+            <h2 class="card__title">Recette 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis, laborum.
+            </p>
+          </div>
+        </article>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
       </section>
     </main>
     <footer>
       <p>Copyright</p>
     </footer>
-    <script src="/script/index.js"></script>
+    <script type="module" src="/src/js/index.js"></script>
   </body>
 </html>

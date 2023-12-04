@@ -1,10 +1,12 @@
 // @import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 @import "./variable.scss";
 @import "./global.scss";
+@import "./card.scss";
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
+  background-color: $background-color;
 }
 
 .header-container {
@@ -73,53 +75,107 @@
 
 @for $i from 1 through 3 {
   .dropdown-#{$i} {
-    width: 100%;
-    max-width: 300px;
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 
-    &__btn {
-      font-family: $secondary-font;
-      width: 100%;
-      height: 60px;
-      border : 1px solid #ccc;
-      border-radius: 20px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+  &__btn {
+    align-items: center;
+    padding: 16px;
+    font-size: 16px;
+    min-width: 180px;
+    font-family: $secondary-font;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: white;
+
+    &-container {
       display: flex;
       align-items: center;
-      padding: 0 20px;
-      padding: 16px;
-      font-size: 16px;
-      cursor: pointer;
+      justify-content: space-between;
+      font-size: 20px;
     }
-    &__search {
-      width: 100%;
-    }
-    &__content {
-      display: block;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      & a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        &:hover {
-          background-color: #ddd;
-        }
-      }
-    }
-    &:hover {
-      .dropdown-#{$i}__content {
-        display: block;
-      }
+
+    &-text {
+      margin-right: 10px;
     }
   }
+
+  &__content {
+    display: none;
+    position: absolute;
+    padding: 16px;
+    min-width: 180px;
+    left: 0;
+    z-index: 1;
+    background-color: white;
+    border-radius: 0px 0px 15px 15px;
+
+    &__inputContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    & i {
+      position: absolute;
+      font-weight: bold;
+      right: 25px;
+      border-radius: 15px;
+      color: grey;
+    }
+
+    a {
+      font-family: $secondary-font;
+      font-size: 16px;
+      color: black;
+      padding: 2px;
+      text-decoration: none;
+      display: block;
+    }
+
+    a:hover {
+      background-color: $main-color;
+    }
+
+    &.show {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+}
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
 }
 
 .recipes-container {
@@ -127,4 +183,14 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate0 {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
 }
