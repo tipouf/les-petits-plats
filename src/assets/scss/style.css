@@ -55,7 +55,7 @@ i {
 }
 .card img {
   width: 100%;
-  height: 300px;
+  height: 253px;
   object-fit: cover;
 }
 .card__content {
@@ -65,7 +65,7 @@ i {
   height: 300px;
 }
 .card__content__title {
-  margin: 0;
+  margin: 15px 0;
   font-size: 18px;
   font-family: "anton";
   font-weight: normal;
@@ -75,24 +75,37 @@ i {
   flex-direction: column;
   font-family: "manrope";
   font-size: 14px;
-  color: rgb(1, 1, 1);
+  color: black;
   height: 100px;
+  margin-bottom: 32px;
 }
-.card__content__ingredient {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.card__content__recipe__title {
+  margin: 15px 0;
+  font-size: 14px;
+  font-family: "manrope";
+  color: grey;
 }
-.card__content__ingredient__title {
+.card__content__recipe__description {
   margin: 0;
   font-size: 14px;
   font-family: "manrope";
+}
+.card__content__ingredient {
+  font-family: "manrope";
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 15px 0;
+}
+.card__content__ingredient__title {
+  margin: 15px 0;
+  font-size: 14px;
+  color: grey;
 }
 .card__content__ingredient__grid {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  gap: 0px;
   height: 100%;
 }
 .card__content__ingredient__grid__item {
@@ -100,6 +113,14 @@ i {
   flex-direction: column;
   gap: 5px;
   height: 50px;
+}
+.card__content__ingredient__grid__item__title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.card__content__ingredient__grid__item__quantity {
+  font-size: 14px;
+  color: grey;
 }
 
 .container {
@@ -246,7 +267,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: rgb(1, 1, 1);
+  color: black;
 }
 
 .dropdown-2 {
@@ -325,7 +346,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: rgb(1, 1, 1);
+  color: black;
 }
 
 .dropdown-3 {
@@ -404,7 +425,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: rgb(1, 1, 1);
+  color: black;
 }
 
 .dropbtn {

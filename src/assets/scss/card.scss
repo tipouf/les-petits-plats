@@ -11,7 +11,7 @@
 
   & img {
     width: 100%;
-    height: 300px;
+    height: 253px;
     object-fit: cover;
   }
 
@@ -22,7 +22,7 @@
     height: 300px;
 
     &__title {
-      margin: 0;
+      margin: 15px 0;
       font-size: 18px;
       font-family: $primary-font;
       font-weight: normal;
@@ -35,17 +35,33 @@
       font-size: 14px;
       color: $tertiary-color;
       height: 100px;
-    }
-
-    &__ingredient {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      margin-bottom: 32px;
 
       &__title {
+        margin: 15px 0;
+        font-size: 14px;
+        font-family: $secondary-font;
+        color: grey;
+      }
+
+      &__description {
         margin: 0;
         font-size: 14px;
         font-family: $secondary-font;
+      }
+    }
+
+    &__ingredient {
+      font-family: $secondary-font;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 15px 0;
+
+      &__title {
+        margin: 15px 0;
+        font-size: 14px;
+        color: $quaternary-color;
       }
 
       &__grid {
@@ -53,8 +69,6 @@
 
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-
-        gap: 0px;
         height: 100%;
 
         &__item {
@@ -63,6 +77,15 @@
           gap: 5px;
           height: 50px;
 
+          &__title {
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          &__quantity {
+            font-size: 14px;
+            color: $quaternary-color;
+          }
         }
       }
     }
