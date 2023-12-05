@@ -129,10 +129,9 @@
 
     & i {
       position: absolute;
-      font-weight: bold;
       right: 25px;
       border-radius: 15px;
-      color: grey;
+      color: rgb(0.77, 0.77, 0.77);
     }
 
     a {
@@ -160,6 +159,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       box-sizing: border-box;
+      color: $tertiary-color;
     }
   }
 }

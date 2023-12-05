@@ -48,19 +48,58 @@ i {
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 600px;
+  height: 731px;
+  width: 380px;
   margin: 20px;
+  overflow: auto;
 }
 .card img {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 15px 15px 0 0;
 }
-.card__title {
+.card__content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 300px;
+}
+.card__content__title {
+  margin: 0;
+  font-size: 18px;
+  font-family: "anton";
+  font-weight: normal;
+}
+.card__content__recipe {
+  display: flex;
+  flex-direction: column;
   font-family: "manrope";
-  font-size: 36px;
-  margin: 20px 20px 0 20px;
+  font-size: 14px;
+  color: rgb(1, 1, 1);
+  height: 100px;
+}
+.card__content__ingredient {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card__content__ingredient__title {
+  margin: 0;
+  font-size: 14px;
+  font-family: "manrope";
+}
+.card__content__ingredient__grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  height: 100%;
+}
+.card__content__ingredient__grid__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 50px;
 }
 
 .container {
@@ -181,10 +220,9 @@ i {
 }
 .dropdown-1__content i {
   position: absolute;
-  font-weight: bold;
   right: 25px;
   border-radius: 15px;
-  color: grey;
+  color: rgb(1, 1, 1);
 }
 .dropdown-1__content a {
   font-family: "manrope";
@@ -208,6 +246,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: rgb(1, 1, 1);
 }
 
 .dropdown-2 {
@@ -260,10 +299,9 @@ i {
 }
 .dropdown-2__content i {
   position: absolute;
-  font-weight: bold;
   right: 25px;
   border-radius: 15px;
-  color: grey;
+  color: rgb(1, 1, 1);
 }
 .dropdown-2__content a {
   font-family: "manrope";
@@ -287,6 +325,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: rgb(1, 1, 1);
 }
 
 .dropdown-3 {
@@ -339,10 +378,9 @@ i {
 }
 .dropdown-3__content i {
   position: absolute;
-  font-weight: bold;
   right: 25px;
   border-radius: 15px;
-  color: grey;
+  color: rgb(1, 1, 1);
 }
 .dropdown-3__content a {
   font-family: "manrope";
@@ -366,6 +404,7 @@ i {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: rgb(1, 1, 1);
 }
 
 .dropbtn {
