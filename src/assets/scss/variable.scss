@@ -1,6 +1,6 @@
-$main-color: yellow;
+$main-color: #ffd15b;
 $secondary-color: red;
-$background-color: #EDEDED;
+$background-color: #ededed;
 $tertiary-color: black;
 $quaternary-color: grey;
 
@@ -10,15 +10,11 @@ $font-manrope: "manrope";
 $primary-font: $font-anton;
 $secondary-font: $font-manrope;
 
-
 @font-face {
-    font-family: "anton";
-    src: url("../fonts/Anton-Regular.ttf") format("truetype");
-  }
-  @font-face {
-    font-family: "manrope";
-    src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
-  }
-
-
-  
+  font-family: "anton";
+  src: url("../fonts/Anton-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
