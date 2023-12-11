@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
             type="text"
             placeholder="Rechercher une recette, un ingrédient, ..."
           />
-          <div class="search__button">
+          <div class="search__button" aria-hidden="false" tabindex="0" >
             <i class="fa fa-search"></i>
           </div>
           <span class="cross-icon cross-icon-none fa fa-times fa-3x"></span>
@@ -104,50 +104,12 @@
       </section>
 
       <section id="recipes" class="recipes-container container">
-        <article class="card">
-          <img src="./assets/images/Recette01.jpg" alt="Recette 2" />
-          <div class="card__content">
-            <h2 class="card__content__title">Limonade de Coco</h2>
-            <div class="card__content__recipe">
-              <h3 class="card__content__recipe__title">RECETTE</h3>
-              <span class="card__content__recipe__description">
-                Mettre les glaçons à votre goût dans le blender, Ajouter le lait
-                la crème de coco, le jus de 2 citrons et le sucre ensemble.
-                Mixer jusqu'à obtenir la consistance désirée.
-              </span>
-            </div>
-            <div class="card__content__ingredient">
-              <h3 class="card__content__ingredient__title">INGREDIENTS</h3>
-              <div class="card__content__ingredient__grid">
-                <div class="card__content__ingredient__grid__item">
-                  <span class="card__content__ingredient__grid__item__title">Lait de coco</span>
-                  <span class=card__content__ingredient__grid__item__quantity">400ml</span>
-                </div>
-                <div class="card__content__ingredient__grid__item">
-                  <span class="card__content__ingredient__grid__item__title">Lait de coco</span>
-                  <span class=card__content__ingredient__grid__item__quantity">400ml</span>
-                </div>
-                <div class="card__content__ingredient__grid__item">
-                  <span class="card__content__ingredient__grid__item__title">Lait de coco</span>
-                  <span class=card__content__ingredient__grid__item__quantity">400ml</span>
-                </div>
-                <div class="card__content__ingredient__grid__item">
-                  <span class="card__content__ingredient__grid__item__title">Lait de coco</span>
-                  <span class=card__content__ingredient__grid__item__quantity">400ml</span>
-                </div>
-                <div class="card__content__ingredient__grid__item">
-                  <span class="card__content__ingredient__grid__item__title">Lait de coco</span>
-                  <span class=card__content__ingredient__grid__item__quantity">400ml</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
       </section>
     </main>
     <footer>
       <p>Nicolas Cindon</p>
     </footer>
     <script type="module" src="/src/js/index.js"></script>
+    <script src="./data/recipes.js"></script>
   </body>
 </html>

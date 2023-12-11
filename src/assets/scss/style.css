@@ -48,10 +48,10 @@ i {
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 731px;
+  min-height: 731px;
   max-width: 380px;
   margin: 20px;
-  overflow: auto;
+  overflow: hidden;
 }
 .card img {
   width: 100%;
@@ -62,7 +62,7 @@ i {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 300px;
+  min-height: 300px;
 }
 .card__content__title {
   margin: 15px 0;
@@ -76,8 +76,6 @@ i {
   font-family: "manrope";
   font-size: 14px;
   color: black;
-  height: 100px;
-  margin-bottom: 32px;
 }
 .card__content__recipe__title {
   margin: 15px 0;
@@ -89,10 +87,27 @@ i {
   margin: 0;
   font-size: 14px;
   font-family: "manrope";
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 110px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.5;
+}
+.card__content__recipe__description:hover {
+  min-height: 110px;
+  height: auto;
+  display: block;
+}
+.card__content__recipe__description:hover .card {
+  height: auto;
 }
 .card__content__ingredient {
+  display: block;
   font-family: "manrope";
-  display: flex;
   flex-direction: column;
   gap: 5px;
   margin: 15px 0;
@@ -464,7 +479,7 @@ i {
 .recipes-container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
 }
 

@@ -4,10 +4,11 @@
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 731px;
+  min-height: 731px;
   max-width: 380px;
   margin: 20px;
-  overflow: auto;
+  overflow: hidden;
+
 
   & img {
     width: 100%;
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    height: 300px;
+    min-height: 300px;
 
     &__title {
       margin: 15px 0;
@@ -34,8 +35,6 @@
       font-family: $secondary-font;
       font-size: 14px;
       color: $tertiary-color;
-      height: 100px;
-      margin-bottom: 32px;
 
       &__title {
         margin: 15px 0;
@@ -48,12 +47,31 @@
         margin: 0;
         font-size: 14px;
         font-family: $secondary-font;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 110px;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.5;
+        
+        &:hover {
+          min-height: 110px;
+          height: auto;
+          display: block;
+
+          .card {
+            height: auto;
+          }
+        }
       }
     }
 
     &__ingredient {
+      display: block;
       font-family: $secondary-font;
-      display: flex;
       flex-direction: column;
       gap: 5px;
       margin: 15px 0;
