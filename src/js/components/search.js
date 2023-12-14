@@ -6,8 +6,6 @@ function search() {
   searchInput.focus();
 
   searchButton.addEventListener("click", () => {
-    console.log("search", searchInput.value);
-
     if (searchInput.value !== "") {
       crossIcon.classList.remove("cross-icon-none");
     } else {
@@ -19,9 +17,8 @@ function search() {
     searchInput.value = "";
     searchInput.focus();
     crossIcon.classList.add("cross-icon-none");
-  })
+    searchButton.click();
+  });
 }
-
-
 
 export { search };

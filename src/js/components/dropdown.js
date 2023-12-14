@@ -1,45 +1,43 @@
 import { removeAccents } from "../utils/utils.js";
 
 export function dropdown() {
-  const dropdownBtnIngredients = document.querySelector(".dropdown-1__btn");
-  const dropdownBtnDevices = document.querySelector(".dropdown-2__btn");
-  const dropdownBtnUstensils = document.querySelector(".dropdown-3__btn");
-
-  const dropdownIngredientsContent = document.querySelector(".dropdown-1__content");
+  const dropdownBtnIngredients = document.querySelector(".dropdown-1__btn-container");
+  const dropdownBtnDevices = document.querySelector(".dropdown-2__btn-container");
+  const dropdownBtnUstensils = document.querySelector(".dropdown-3__btn-container");
   const dropdownDevicesContent = document.querySelector(".dropdown-2__content");
-  const dropdownUstensilsContent = document.querySelector(".dropdown-3__content");
-
+  const dropdownUstensilsContent = document.querySelector(
+    ".dropdown-3__content"
+  );
+  const dropdownIngredientsContent = document.querySelector(
+    ".dropdown-1__content"
+  );
   const ingredientInput = document.querySelector("#myIngredientInput");
   const deviceInput = document.querySelector("#myDeviceInput");
   const ustensilInput = document.querySelector("#myUstensilInput");
+  const angleIcon1 = document.querySelector("#angleIcon1");
+  const angleIcon2 = document.querySelector("#angleIcon2");
+  const angleIcon3 = document.querySelector("#angleIcon3");
 
-  const angleIcon1 = document.querySelector('#angleIcon1');
-  const angleIcon2 = document.querySelector('#angleIcon2');
-  const angleIcon3 = document.querySelector('#angleIcon3');
+  dropdownBtnIngredients.addEventListener("click", () =>
+    toggleDropdown(dropdownIngredientsContent, angleIcon1)
+  );
+  ingredientInput.addEventListener("keyup", (event) =>
+    filterDropdown(event, dropdownIngredientsContent, ".dropdown-1__content a")
+  );
 
-  dropdownBtnIngredients.addEventListener("click", () => {
-    toggleDropdown(dropdownIngredientsContent, angleIcon1);
-  });
+  dropdownBtnDevices.addEventListener("click", () =>
+    toggleDropdown(dropdownDevicesContent, angleIcon2)
+  );
+  deviceInput.addEventListener("keyup", (event) =>
+    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content > a")
+  );
 
-  ingredientInput.addEventListener("keyup", (event) => {
-    filterDropdown(event, dropdownIngredientsContent, ".dropdown-1__content a");
-  });
-
-  dropdownBtnDevices.addEventListener("click", () => {
-    toggleDropdown(dropdownDevicesContent, angleIcon2);
-  });
-
-  deviceInput.addEventListener("keyup", (event) => {
-    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a");
-  });
-
-  dropdownBtnUstensils.addEventListener("click", () => {
-    toggleDropdown(dropdownUstensilsContent, angleIcon3);
-  });
-
-  ustensilInput.addEventListener("keyup", (event) => {
-    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a");
-  });
+  dropdownBtnUstensils.addEventListener("click", () =>
+    toggleDropdown(dropdownUstensilsContent, angleIcon3)
+  );
+  ustensilInput.addEventListener("keyup", (event) =>
+    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content > a")
+  );
 }
 
 function toggleDropdown(dropdownContent, angleIcon) {
@@ -53,13 +51,13 @@ function toggleDropdown(dropdownContent, angleIcon) {
   }
 }
 
-
 function filterDropdown(event, dropdownContent, selector) {
   const filter = event.target.value.toUpperCase();
   const links = dropdownContent.querySelectorAll(selector);
 
   links.forEach((link) => {
     const txtValue = link.textContent;
-    link.style.display = removeAccents(txtValue).toUpperCase().indexOf(filter) > -1 ? "" : "none";
+    link.style.display =
+      removeAccents(txtValue).toUpperCase().indexOf(filter) > -1 ? "" : "none";
   });
 }

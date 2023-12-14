@@ -1,6 +1,4 @@
 function recipeCard(recipe) {
-  console.log(recipe);
-
   const card = document.createElement("article");
   card.classList.add("card");
   card.setAttribute("tabindex", "0");

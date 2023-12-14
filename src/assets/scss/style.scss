@@ -85,6 +85,7 @@
 
 .filter-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 60px;
   margin: 20px 20px;
@@ -92,100 +93,122 @@
 
 @for $i from 1 through 3 {
   .dropdown-#{$i} {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 
-  &__btn {
-    align-items: center;
-    padding: 16px;
-    font-size: 16px;
-    min-width: 180px;
-    font-family: $secondary-font;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-    background-color: white;
-
-    &-container {
-      display: flex;
+    &__btn {
       align-items: center;
-      justify-content: space-between;
-      font-size: 20px;
-    }
+      padding: 16px;
+      font-size: 16px;
+      min-width: 180px;
+      font-family: $secondary-font;
+      border: none;
+      cursor: pointer;
+      border-radius: 15px;
+      background-color: white;
 
-    &-text {
-      margin-right: 10px;
-    }
-  }
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+      }
 
-  &__content {
-    display: none;
-    position: absolute;
-    min-width: 180px;
-    left: 0;
-    z-index: 1;
-    background-color: white;
-    border-radius: 0px 0px 15px 15px;
-    overflow: auto;
-
-    &__inputContainer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px;
-    }
-
-    &__input {
-      padding: 12px 20px 12px 40px;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-
-      &:active {
-        border: 1px solid $main-color;
+      &-text {
+        margin-right: 10px;
       }
     }
 
-    & i {
+    &__content {
+      display: none;
       position: absolute;
-      right: 25px;
-      border-radius: 15px;
-      color: rgb(0.77, 0.77, 0.77);
-    }
+      min-width: 180px;
+      left: 0;
+      z-index: 1;
+      background-color: white;
+      border-radius: 0px 0px 15px 15px;
+      overflow: auto;
 
-    a {
-      font-family: $secondary-font;
-      font-size: 16px;
-      color: black;
-      padding: 10px 20px 10px 10px;
-      text-decoration: none;
-      display: block;
-    }
+      &__inputContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px;
+      }
 
-    a:hover {
-      background-color: $main-color;
-    }
+      &__input {
+        padding: 12px 20px 12px 40px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
 
-    &.show {
-      display: block;
-    }
+        &:active {
+          border: 1px solid $main-color;
+        }
+      }
 
-    input {
-      width: 100%;
-      padding: 12px 20px;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      color: $tertiary-color;
+      &__grid {
+        max-height: 300px;
+        overflow: auto;
+      }
+
+      & i {
+        position: absolute;
+        right: 25px;
+        border-radius: 15px;
+        color: rgb(0.77, 0.77, 0.77);
+      }
+
+      a {
+        font-family: $secondary-font;
+        font-size: 16px;
+        color: black;
+        padding: 10px 20px 10px 10px;
+        text-decoration: none;
+        display: block;
+      }
+
+      a:hover {
+        background-color: $main-color;
+      }
+
+      &.show {
+        display: block;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: $tertiary-color;
+      }
     }
   }
 }
+
+.selected {
+  background-color: $main-color;
+  font-family: $secondary-font;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  padding: 10px 20px 10px 10px;
+  text-decoration: none;
+  display: block;
+
+  &::after {
+    padding-left: 5px;
+    font-family: $tertiary-font;
+    content: "\F057";
+  }
 }
 
 .dropbtn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -193,14 +216,15 @@
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #3e8e41;
 }
 
 .recipes-container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 20px;
 }
 
@@ -212,4 +236,14 @@
 .rotate0 {
   transform: rotate(0deg);
   transition: transform 0.3s ease-in-out;
+}
+
+.no-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: $secondary-font;
 }

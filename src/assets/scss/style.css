@@ -6,6 +6,10 @@
   font-family: "manrope";
   src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
 }
+@font-face {
+  font-family: "fontawesome 5 free";
+  src: url("../fonts/fa-solid-900.ttf") format("truetype");
+}
 :root {
   --yellow: #f5c518;
 }
@@ -96,13 +100,13 @@ i {
   white-space: normal;
   word-break: break-word;
   line-height: 1.5;
+  transition: height 0.3s ease-in-out;
 }
 .card__content__recipe__description:hover {
   min-height: 110px;
-  height: auto;
-  display: block;
+  height: 300px;
 }
-.card__content__recipe__description:hover .card {
+.card__content__recipe__description:hover ~ .card {
   height: auto;
 }
 .card__content__ingredient {
@@ -218,6 +222,7 @@ i {
 
 .filter-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 60px;
   margin: 20px 20px;
@@ -272,6 +277,10 @@ i {
 }
 .dropdown-1__content__input:active {
   border: 1px solid #ffd15b;
+}
+.dropdown-1__content__grid {
+  max-height: 300px;
+  overflow: auto;
 }
 .dropdown-1__content i {
   position: absolute;
@@ -353,6 +362,10 @@ i {
 .dropdown-2__content__input:active {
   border: 1px solid #ffd15b;
 }
+.dropdown-2__content__grid {
+  max-height: 300px;
+  overflow: auto;
+}
 .dropdown-2__content i {
   position: absolute;
   right: 25px;
@@ -433,6 +446,10 @@ i {
 .dropdown-3__content__input:active {
   border: 1px solid #ffd15b;
 }
+.dropdown-3__content__grid {
+  max-height: 300px;
+  overflow: auto;
+}
 .dropdown-3__content i {
   position: absolute;
   right: 25px;
@@ -463,8 +480,24 @@ i {
   color: black;
 }
 
+.selected {
+  background-color: #ffd15b;
+  font-family: "manrope";
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  padding: 10px 20px 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+.selected::after {
+  padding-left: 5px;
+  font-family: "fontawesome 5 free";
+  content: "\f057";
+}
+
 .dropbtn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -472,14 +505,15 @@ i {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #3e8e41;
 }
 
 .recipes-container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 20px;
 }
 
@@ -491,6 +525,16 @@ i {
 .rotate0 {
   transform: rotate(0deg);
   transition: transform 0.3s ease-in-out;
+}
+
+.no-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: "manrope";
 }
 
 /*# sourceMappingURL=style.css.map */

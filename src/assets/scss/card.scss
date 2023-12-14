@@ -56,13 +56,13 @@
         white-space: normal;
         word-break: break-word;
         line-height: 1.5;
+        transition: height 0.3s ease-in-out;
         
         &:hover {
           min-height: 110px;
-          height: auto;
-          display: block;
+          height: 300px;
 
-          .card {
+          & ~ .card  {
             height: auto;
           }
         }
