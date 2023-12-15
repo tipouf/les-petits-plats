@@ -247,3 +247,29 @@
   font-size: 20px;
   font-family: $secondary-font;
 }
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  width: max-content;
+  background-color: $main-color;
+  font-family: $secondary-font;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  border-radius: 15px;
+  margin-left: 5px;
+
+  &::after {
+    padding-left: 10px;
+    font-family: $tertiary-font;
+    content: "\F057";
+  }
+}
