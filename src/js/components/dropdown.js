@@ -1,4 +1,5 @@
-import { removeAccents } from "../utils/utils.js";
+import { removeAccents, normalizeAndLowerCase } from "../utils/utils.js";
+
 
 export function dropdown() {
   const dropdownBtnIngredients = document.querySelector(".dropdown-1__btn-container");
@@ -61,3 +62,25 @@ function filterDropdown(event, dropdownContent, selector) {
       removeAccents(txtValue).toUpperCase().indexOf(filter) > -1 ? "" : "none";
   });
 }
+
+const getIngredientsList = (list) =>[...new Set(
+  list.flatMap((recipe) =>
+    recipe.ingredients.map(({ ingredient }) =>
+      normalizeAndLowerCase(ingredient)
+    )
+  )
+)];
+
+const getDevicesList = (list) =>[...new Set(
+  list.map(({ appliance }) =>
+    normalizeAndLowerCase(appliance)
+  )
+)];
+
+const getUstensilsList = (list) =>[...new Set(
+  list.flatMap((recipe) =>
+    recipe.ustensils.map((ustensil) => normalizeAndLowerCase(ustensil))
+  )
+)]
+
+export { getIngredientsList, getDevicesList, getUstensilsList }
