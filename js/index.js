@@ -1,16 +1,11 @@
-import { dropdown } from "./components/dropdown.js";
+import { dropdown, getDevicesList, getIngredientsList, getUstensilsList } from "./components/dropdown.js";
 import { search } from "./components/search.js";
 import { recipeCard } from "./template/card.js";
-import {
-  getIngredientsList,
-  getDevicesList,
-  getUstensilsList,
-} from "./components/dropdown.js";
-import { normalizeAndLowerCase } from "./utils/utils.js";
 
-const selectedIngredients = [];
-const selectedDevices = [];
-const selectedUstensils = [];
+import { normalizeAndLowerCase } from "./utils/utils.js";
+let selectedIngredients = [];
+let selectedDevices = [];
+let selectedUstensils = [];
 let filteredRecipes = [];
 
 const dropdownIngredientsContent = document.querySelector(
@@ -23,32 +18,74 @@ const dropdownUstensilsContent = document.querySelector(
   ".dropdown-3__content__grid"
 );
 
+const searchInput = document.querySelector(".search__input");
+const searchButton = document.querySelector(".search__button");
+const crossIcon = document.querySelector(".cross-icon");
+
+const tagContainer = document.querySelector(".tag-container");
+const filterContainer = document.querySelector(".filter-container");
+
+function reset() {
+  selectedIngredients = [];
+  selectedDevices = [];
+  selectedUstensils = [];
+  filteredRecipes = recipes;
+
+  displayRecipes(filteredRecipes);
+
+  dropdownIngredientsContent.innerHTML = "";
+  dropdownDevicesContent.innerHTML = "";
+  dropdownUstensilsContent.innerHTML = "";
+
+  appendItems(
+    dropdownIngredientsContent,
+    getIngredientsList(filteredRecipes),
+    "ingredient"
+  );
+
+  appendItems(
+    dropdownDevicesContent,
+    getDevicesList(filteredRecipes),
+    "device"
+  );
+
+  appendItems(
+    dropdownUstensilsContent,
+    getUstensilsList(filteredRecipes),
+    "ustensil"
+  );
+
+  tagContainer.innerHTML = "";
+}
+
 function init() {
-  dropdown();
-  search();
+  dropdown(); // Initialize dropdown
+  search(); // Initialize search
 
   searchRecipes(recipes);
   advancedSearch(recipes);
-  //   displayRecipes(recipes);
 }
 
 function searchRecipes(recipes) {
-  const searchInput = document.querySelector(".search__input");
-  const searchButton = document.querySelector(".search__button");
-
   searchInput.addEventListener("keyup", (event) => {
     event.preventDefault();
     if (event.key === "Enter") {
       const searchText = event.target.value.toLowerCase();
       filteredRecipes = filterRecipes(recipes, searchText);
+      reset();
       searchButton.click();
     }
   });
 
   searchButton.addEventListener("click", () => {
+    reset();
     const searchText = searchInput.value.toLowerCase();
     filteredRecipes = filterRecipes(recipes, searchText);
-
+    if (filteredRecipes.length === 0) {
+      filterContainer.style.display = "none";
+    } else {
+      filterContainer.style.display = "flex";
+    }
     advancedSearch(filteredRecipes);
   });
 }
@@ -80,9 +117,21 @@ function advancedSearch(recipes) {
   dropdownDevicesContent.innerHTML = "";
   dropdownUstensilsContent.innerHTML = "";
 
-  appendItems(dropdownIngredientsContent, getIngredientsList(filteredRecipes), "ingredient");
-  appendItems(dropdownDevicesContent, getDevicesList(filteredRecipes), "device");
-  appendItems(dropdownUstensilsContent, getUstensilsList(filteredRecipes), "ustensil");
+  appendItems(
+    dropdownIngredientsContent,
+    getIngredientsList(filteredRecipes),
+    "ingredient"
+  );
+  appendItems(
+    dropdownDevicesContent,
+    getDevicesList(filteredRecipes),
+    "device"
+  );
+  appendItems(
+    dropdownUstensilsContent,
+    getUstensilsList(filteredRecipes),
+    "ustensil"
+  );
 
   const recipesSection = document.querySelector(".recipes-container");
   recipesSection.innerHTML = "";
@@ -161,7 +210,7 @@ const createDropdownItem = (text, type) => {
             `.dropdown-1__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
-          displayRecipes(getFilteredResults())
+          displayRecipes(getFilteredResults());
         } else {
           selectedIngredients.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -182,7 +231,7 @@ const createDropdownItem = (text, type) => {
             `.dropdown-2__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
-          displayRecipes(getFilteredResults())
+          displayRecipes(getFilteredResults());
         } else {
           selectedDevices.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -206,7 +255,7 @@ const createDropdownItem = (text, type) => {
             `.dropdown-3__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
-          displayRecipes(getFilteredResults())
+          displayRecipes(getFilteredResults());
         } else {
           selectedUstensils.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -217,13 +266,17 @@ const createDropdownItem = (text, type) => {
 
     const newResults = getFilteredResults();
 
-    let ingredients = getIngredientsList(newResults);
-    let devices = getDevicesList(newResults);
-    let ustensils = getUstensilsList(newResults);
-
-    appendItems(dropdownIngredientsContent, ingredients, "ingredient");
-    appendItems(dropdownDevicesContent, devices, "device");
-    appendItems(dropdownUstensilsContent, ustensils, "ustensil");
+    appendItems(
+      dropdownIngredientsContent,
+      getIngredientsList(newResults),
+      "ingredient"
+    );
+    appendItems(dropdownDevicesContent, getDevicesList(newResults), "device");
+    appendItems(
+      dropdownUstensilsContent,
+      getUstensilsList(newResults),
+      "ustensil"
+    );
 
     displayRecipes(newResults);
   });
@@ -253,6 +306,7 @@ function displayRecipes(recipes) {
     recipesSection.innerHTML = "";
 
     recipes.forEach((recipe) => {
+      console.log("recipe", recipe);
       const card = recipeCard(recipe);
       recipesSection.appendChild(card);
     });
@@ -261,35 +315,35 @@ function displayRecipes(recipes) {
 
 function getFilteredResults() {
   return filteredRecipes.filter((recipe) => {
-  if (
-    selectedIngredients.length === 0 &&
-    selectedDevices.length === 0 &&
-    selectedUstensils.length === 0
-  ) {
-    return filteredRecipes;
-  } else {
-    return (
-      selectedIngredients.every((ingredient) =>
-        recipe.ingredients.some(
-          (recipeIngredient) =>
-            normalizeAndLowerCase(recipeIngredient.ingredient) ===
-            normalizeAndLowerCase(ingredient)
+    if (
+      selectedIngredients.length === 0 &&
+      selectedDevices.length === 0 &&
+      selectedUstensils.length === 0
+    ) {
+      return filteredRecipes;
+    } else {
+      return (
+        selectedIngredients.every((ingredient) =>
+          recipe.ingredients.some(
+            (recipeIngredient) =>
+              normalizeAndLowerCase(recipeIngredient.ingredient) ===
+              normalizeAndLowerCase(ingredient)
+          )
+        ) &&
+        selectedDevices.every(
+          (device) =>
+            normalizeAndLowerCase(recipe.appliance) ===
+            normalizeAndLowerCase(device)
+        ) &&
+        selectedUstensils.every((ustensil) =>
+          recipe.ustensils.some(
+            (recipeUstensil) =>
+              normalizeAndLowerCase(recipeUstensil) ===
+              normalizeAndLowerCase(ustensil)
+          )
         )
-      ) &&
-      selectedDevices.every(
-        (device) =>
-          normalizeAndLowerCase(recipe.appliance) ===
-          normalizeAndLowerCase(device)
-      ) &&
-      selectedUstensils.every((ustensil) =>
-        recipe.ustensils.some(
-          (recipeUstensil) =>
-            normalizeAndLowerCase(recipeUstensil) ===
-            normalizeAndLowerCase(ustensil)
-        )
-      )
-    );
-  }
+      );
+    }
   });
 }
 

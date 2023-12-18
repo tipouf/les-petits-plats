@@ -7,9 +7,4 @@ const normalizeAndLowerCase = (str) =>
     .replace(/[\u0300-\u036f]/g, "") // remove accents
     .toLowerCase(); // convert to lowercase
 
-
-
-
-    export { removeAccents, normalizeAndLowerCase };
-
-
+export { removeAccents, normalizeAndLowerCase };

@@ -4,13 +4,9 @@ function search() {
   const crossIcon = document.querySelector(".cross-icon");
 
   searchInput.focus();
-
+  
   searchButton.addEventListener("click", () => {
-    if (searchInput.value !== "") {
-      crossIcon.classList.remove("cross-icon-none");
-    } else {
-      crossIcon.classList.add("cross-icon-none");
-    }
+    crossIcon.classList.toggle("cross-icon-none", searchInput.value === "");
   });
 
   crossIcon.addEventListener("click", () => {
