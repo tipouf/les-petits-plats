@@ -4,6 +4,7 @@ function recipeCard(recipe) {
   card.setAttribute("tabindex", "0");
   card.innerHTML = `
   <img src="./assets/images/${recipe.image}" alt="${recipe.name}" />
+  <div class="card__time">${recipe.time}min</div>
   <div class="card__content">
     <h2 class="card__content__title">${recipe.name}</h2>
     <div class="card__content__recipe">

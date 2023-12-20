@@ -1,12 +1,17 @@
-import { dropdown, getDevicesList, getIngredientsList, getUstensilsList } from "./components/dropdown.js";
+import {
+  dropdown,
+  getDevicesList,
+  getIngredientsList,
+  getUstensilsList,
+} from "./components/dropdown.js";
 import { search } from "./components/search.js";
 import { recipeCard } from "./template/card.js";
-
 import { normalizeAndLowerCase } from "./utils/utils.js";
 let selectedIngredients = [];
 let selectedDevices = [];
 let selectedUstensils = [];
 let filteredRecipes = [];
+let advancedSearchResults = [];
 
 const dropdownIngredientsContent = document.querySelector(
   ".dropdown-1__content__grid"
@@ -24,6 +29,8 @@ const crossIcon = document.querySelector(".cross-icon");
 
 const tagContainer = document.querySelector(".tag-container");
 const filterContainer = document.querySelector(".filter-container");
+
+const numberOfRecipes = document.querySelector(".number-of-recipes");
 
 function reset() {
   selectedIngredients = [];
@@ -141,7 +148,7 @@ function advancedSearch(recipes) {
   noRecipe.textContent = "Aucune recette ne correspond à votre critère...";
 
   recipesSection.appendChild(noRecipe);
-
+  numberOfRecipesDOM(filteredRecipes);
   displayRecipes(filteredRecipes);
 }
 
@@ -264,21 +271,26 @@ const createDropdownItem = (text, type) => {
       tagContainer.appendChild(tag);
     });
 
-    const newResults = getFilteredResults();
+    advancedSearchResults = getFilteredResults();
 
     appendItems(
       dropdownIngredientsContent,
-      getIngredientsList(newResults),
+      getIngredientsList(advancedSearchResults),
       "ingredient"
     );
-    appendItems(dropdownDevicesContent, getDevicesList(newResults), "device");
+    appendItems(
+      dropdownDevicesContent,
+      getDevicesList(advancedSearchResults),
+      "device"
+    );
     appendItems(
       dropdownUstensilsContent,
-      getUstensilsList(newResults),
+      getUstensilsList(advancedSearchResults),
       "ustensil"
     );
 
-    displayRecipes(newResults);
+    numberOfRecipesDOM(advancedSearchResults);
+    displayRecipes(advancedSearchResults);
   });
 
   return a;
@@ -293,6 +305,11 @@ function appendItems(dropdownContent, items, type) {
   return dropdownContent;
 }
 
+function numberOfRecipesDOM(recipes) {
+  numberOfRecipes.textContent = `${recipes.length} recette${
+    recipes.length > 1 ? "s" : ""
+  }`;
+}
 function displayRecipes(recipes) {
   const recipesSection = document.querySelector(".recipes-container");
 
@@ -306,7 +323,6 @@ function displayRecipes(recipes) {
     recipesSection.innerHTML = "";
 
     recipes.forEach((recipe) => {
-      console.log("recipe", recipe);
       const card = recipeCard(recipe);
       recipesSection.appendChild(card);
     });

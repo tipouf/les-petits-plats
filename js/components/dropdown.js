@@ -30,14 +30,14 @@ export function dropdown() {
     toggleDropdown(dropdownDevicesContent, angleIcon2)
   );
   deviceInput.addEventListener("keyup", (event) =>
-    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content > a")
+    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a")
   );
 
   dropdownBtnUstensils.addEventListener("click", () =>
     toggleDropdown(dropdownUstensilsContent, angleIcon3)
   );
   ustensilInput.addEventListener("keyup", (event) =>
-    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content > a")
+    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a")
   );
 }
 
