@@ -191,6 +191,9 @@ const createDropdownItem = (text, type) => {
           // Update dropdown list
           updateDropdownList(filteredRecipes);
 
+          // number of recipes
+          numberOfRecipesDOM(filteredRecipes);
+
           // Update recipes
           displayRecipes(getFilteredResults());
         } else {
@@ -215,6 +218,9 @@ const createDropdownItem = (text, type) => {
           dropdownItem.classList.remove("selected");
           // Update dropdown list
           updateDropdownList(getFilteredResults());
+
+          // number of recipes
+          numberOfRecipesDOM(getFilteredResults());
 
           // Update recipes
           displayRecipes(getFilteredResults());
@@ -243,6 +249,9 @@ const createDropdownItem = (text, type) => {
           dropdownItem.classList.remove("selected");
           // Update dropdown list
           updateDropdownList(getFilteredResults());
+
+          // number of recipes
+          numberOfRecipesDOM(getFilteredResults());
 
           // Update recipes
           displayRecipes(getFilteredResults());
