@@ -44,23 +44,7 @@ function reset() {
   dropdownDevicesContent.innerHTML = "";
   dropdownUstensilsContent.innerHTML = "";
 
-  appendItems(
-    dropdownIngredientsContent,
-    getIngredientsList(filteredRecipes),
-    "ingredient"
-  );
-
-  appendItems(
-    dropdownDevicesContent,
-    getDevicesList(filteredRecipes),
-    "device"
-  );
-
-  appendItems(
-    dropdownUstensilsContent,
-    getUstensilsList(filteredRecipes),
-    "ustensil"
-  );
+  updateDropdownList(filteredRecipes);
 
   tagContainer.innerHTML = "";
 }
@@ -124,21 +108,7 @@ function advancedSearch(recipes) {
   dropdownDevicesContent.innerHTML = "";
   dropdownUstensilsContent.innerHTML = "";
 
-  appendItems(
-    dropdownIngredientsContent,
-    getIngredientsList(filteredRecipes),
-    "ingredient"
-  );
-  appendItems(
-    dropdownDevicesContent,
-    getDevicesList(filteredRecipes),
-    "device"
-  );
-  appendItems(
-    dropdownUstensilsContent,
-    getUstensilsList(filteredRecipes),
-    "ustensil"
-  );
+  updateDropdownList(filteredRecipes);
 
   const recipesSection = document.querySelector(".recipes-container");
   recipesSection.innerHTML = "";
@@ -217,6 +187,11 @@ const createDropdownItem = (text, type) => {
             `.dropdown-1__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
+
+          // Update dropdown list
+          updateDropdownList(filteredRecipes);
+
+          // Update recipes
           displayRecipes(getFilteredResults());
         } else {
           selectedIngredients.push(tag.textContent);
@@ -238,6 +213,10 @@ const createDropdownItem = (text, type) => {
             `.dropdown-2__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
+          // Update dropdown list
+          updateDropdownList(getFilteredResults());
+
+          // Update recipes
           displayRecipes(getFilteredResults());
         } else {
           selectedDevices.push(tag.textContent);
@@ -262,6 +241,10 @@ const createDropdownItem = (text, type) => {
             `.dropdown-3__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
+          // Update dropdown list
+          updateDropdownList(getFilteredResults());
+
+          // Update recipes
           displayRecipes(getFilteredResults());
         } else {
           selectedUstensils.push(tag.textContent);
@@ -273,21 +256,7 @@ const createDropdownItem = (text, type) => {
 
     advancedSearchResults = getFilteredResults();
 
-    appendItems(
-      dropdownIngredientsContent,
-      getIngredientsList(advancedSearchResults),
-      "ingredient"
-    );
-    appendItems(
-      dropdownDevicesContent,
-      getDevicesList(advancedSearchResults),
-      "device"
-    );
-    appendItems(
-      dropdownUstensilsContent,
-      getUstensilsList(advancedSearchResults),
-      "ustensil"
-    );
+    updateDropdownList(advancedSearchResults);
 
     numberOfRecipesDOM(advancedSearchResults);
     displayRecipes(advancedSearchResults);
@@ -310,6 +279,17 @@ function numberOfRecipesDOM(recipes) {
     recipes.length > 1 ? "s" : ""
   }`;
 }
+
+function updateDropdownList(list) {
+  appendItems(
+    dropdownIngredientsContent,
+    getIngredientsList(list),
+    "ingredient"
+  );
+  appendItems(dropdownDevicesContent, getDevicesList(list), "device");
+  appendItems(dropdownUstensilsContent, getUstensilsList(list), "ustensil");
+}
+
 function displayRecipes(recipes) {
   const recipesSection = document.querySelector(".recipes-container");
 
