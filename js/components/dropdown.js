@@ -6,6 +6,10 @@ export function dropdown() {
   const dropdownBtnDevices = document.querySelector(".dropdown-2__btn-container");
   const dropdownBtnUstensils = document.querySelector(".dropdown-3__btn-container");
   const dropdownDevicesContent = document.querySelector(".dropdown-2__content");
+  const deleteSearchInputIngredients = document.querySelector(".dropdown-1__content__inputContainer__crossIcon");
+  const deleteSearchInputDevices = document.querySelector(".dropdown-2__content__inputContainer__crossIcon");
+  const deleteSearchInputUstensils = document.querySelector(".dropdown-3__content__inputContainer__crossIcon");
+
   const dropdownUstensilsContent = document.querySelector(
     ".dropdown-3__content"
   );
@@ -23,21 +27,21 @@ export function dropdown() {
     toggleDropdown(dropdownIngredientsContent, angleIcon1)
   );
   ingredientInput.addEventListener("keyup", (event) =>
-    filterDropdown(event, dropdownIngredientsContent, ".dropdown-1__content a")
+    filterDropdown(event, dropdownIngredientsContent, ".dropdown-1__content a", deleteSearchInputIngredients)
   );
 
   dropdownBtnDevices.addEventListener("click", () =>
     toggleDropdown(dropdownDevicesContent, angleIcon2)
   );
   deviceInput.addEventListener("keyup", (event) =>
-    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a")
+    filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a", deleteSearchInputDevices)
   );
 
   dropdownBtnUstensils.addEventListener("click", () =>
     toggleDropdown(dropdownUstensilsContent, angleIcon3)
   );
   ustensilInput.addEventListener("keyup", (event) =>
-    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a")
+    filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a", deleteSearchInputUstensils)
   );
 }
 
@@ -52,8 +56,21 @@ function toggleDropdown(dropdownContent, angleIcon) {
   }
 }
 
-function filterDropdown(event, dropdownContent, selector) {
+function filterDropdown(event, dropdownContent, selector, crossIcon) {
+
   const filter = event.target.value.toUpperCase();
+
+  if (filter === "") {
+    crossIcon.classList.add("cross-icon-none");
+  } else {
+    crossIcon.classList.remove("cross-icon-none");
+  }
+
+  crossIcon.addEventListener("click", () => {
+    event.target.value = "";
+    filterDropdown(event, dropdownContent, selector, crossIcon);
+  })
+
   const links = dropdownContent.querySelectorAll(selector);
 
   links.forEach((link) => {
