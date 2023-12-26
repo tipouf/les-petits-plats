@@ -184,7 +184,6 @@
         overflow: auto;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
-
         &::-webkit-scrollbar {
           display: none;
         }
@@ -201,9 +200,9 @@
         font-family: $secondary-font;
         font-size: 16px;
         color: black;
-        padding: 10px 20px 10px 10px;
+        padding: 10px 15px 10px 10px;
         text-decoration: none;
-        display: block;
+        display: flex;
       }
 
       a:hover {
@@ -229,16 +228,14 @@
 
 .selected {
   background-color: $main-color;
-  font-family: $secondary-font;
-  font-size: 16px;
   font-weight: bold;
-  color: black;
-  padding: 10px 20px 10px 10px;
-  text-decoration: none;
-  display: block;
+  display: flex;
+  flex:1;
+  justify-content: space-between;
+  align-items: center;
 
   &::after {
-    padding-left: 5px;
+    padding-left: 10px;
     font-family: $tertiary-font;
     content: "\F057";
   }

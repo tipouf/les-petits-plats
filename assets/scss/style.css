@@ -339,9 +339,9 @@ i {
   font-family: "manrope";
   font-size: 16px;
   color: black;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 15px 10px 10px;
   text-decoration: none;
-  display: block;
+  display: flex;
 }
 .dropdown-1__content a:hover {
   background-color: #ffd15b;
@@ -438,9 +438,9 @@ i {
   font-family: "manrope";
   font-size: 16px;
   color: black;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 15px 10px 10px;
   text-decoration: none;
-  display: block;
+  display: flex;
 }
 .dropdown-2__content a:hover {
   background-color: #ffd15b;
@@ -537,9 +537,9 @@ i {
   font-family: "manrope";
   font-size: 16px;
   color: black;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 15px 10px 10px;
   text-decoration: none;
-  display: block;
+  display: flex;
 }
 .dropdown-3__content a:hover {
   background-color: #ffd15b;
@@ -559,16 +559,14 @@ i {
 
 .selected {
   background-color: #ffd15b;
-  font-family: "manrope";
-  font-size: 16px;
   font-weight: bold;
-  color: black;
-  padding: 10px 20px 10px 10px;
-  text-decoration: none;
-  display: block;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
 }
 .selected::after {
-  padding-left: 5px;
+  padding-left: 10px;
   font-family: "fontawesome 5 free";
   content: "\f057";
 }
