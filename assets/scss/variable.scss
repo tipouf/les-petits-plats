@@ -6,9 +6,11 @@ $quaternary-color: grey;
 
 $font-anton: "anton";
 $font-manrope: "manrope";
+$font-awesome: "fontawesome 5 free";
 
 $primary-font: $font-anton;
 $secondary-font: $font-manrope;
+$tertiary-font: $font-awesome;
 
 @font-face {
   font-family: "anton";
@@ -17,4 +19,9 @@ $secondary-font: $font-manrope;
 @font-face {
   font-family: "manrope";
   src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "fontawesome 5 free";
+  src: url("../fonts/fa-solid-900.ttf") format("truetype");
 }

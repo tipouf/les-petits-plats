@@ -1,5 +1,7 @@
 .card {
   display: flex;
+  position: relative;
+  flex-wrap: wrap;
   flex-direction: column;
   border-radius: 15px;
   background-color: white;
@@ -9,6 +11,17 @@
   margin: 20px;
   overflow: hidden;
 
+  &__time {
+    position: absolute;
+    background-color: $main-color;
+    padding: 5px 10px;
+    border-radius: 25px;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-family: $secondary-font;
+    color: $tertiary-color;
+  } 
 
   & img {
     width: 100%;
@@ -56,13 +69,13 @@
         white-space: normal;
         word-break: break-word;
         line-height: 1.5;
+        transition: height 0.3s ease-in-out;
         
         &:hover {
           min-height: 110px;
-          height: auto;
-          display: block;
+          height: 300px;
 
-          .card {
+          & ~ .card  {
             height: auto;
           }
         }
