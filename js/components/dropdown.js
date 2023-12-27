@@ -66,6 +66,30 @@ export function dropdown() {
   dropdownBtnDevices.addEventListener("click", () =>
     toggleDropdown(dropdownDevicesContent, angleIcon2)
   );
+
+  deleteSearchInputDevices.addEventListener("click", () => {
+    deviceInput.value = "";
+    filterDropdown(
+      resetInput,
+      dropdownDevicesContent,
+      ".dropdown-2__content a"
+    );
+  });
+
+  deviceInput.addEventListener("keyup", (event) => {
+    if (deviceInput.value === "") {
+      deleteSearchInputDevices.classList.add("cross-icon-none");
+    } else {
+      deleteSearchInputDevices.classList.remove("cross-icon-none");
+    }
+
+    return filterDropdown(
+      event,
+      dropdownDevicesContent,
+      ".dropdown-2__content a"
+    );
+  });
+
   deviceInput.addEventListener("keyup", (event) =>
     filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a")
   );
@@ -73,6 +97,30 @@ export function dropdown() {
   dropdownBtnUstensils.addEventListener("click", () =>
     toggleDropdown(dropdownUstensilsContent, angleIcon3)
   );
+
+  deleteSearchInputUstensils.addEventListener("click", () => {
+    ustensilInput.value = "";
+    filterDropdown(
+      resetInput,
+      dropdownUstensilsContent,
+      ".dropdown-3__content a"
+    );
+  });
+
+  ustensilInput.addEventListener("keyup", (event) => {
+    if (ustensilInput.value === "") {
+      deleteSearchInputUstensils.classList.add("cross-icon-none");
+    } else {
+      deleteSearchInputUstensils.classList.remove("cross-icon-none");
+    }
+
+    return filterDropdown(
+      event,
+      dropdownUstensilsContent,
+      ".dropdown-3__content a"
+    );
+  });
+
   ustensilInput.addEventListener("keyup", (event) =>
     filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a")
   );
