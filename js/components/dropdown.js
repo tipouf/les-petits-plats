@@ -47,6 +47,7 @@ export function dropdown() {
       dropdownIngredientsContent,
       ".dropdown-1__content a"
     );
+    deleteSearchInputIngredients.classList.add("cross-icon-none");
   });
 
   ingredientInput.addEventListener("keyup", (event) => {
@@ -74,6 +75,7 @@ export function dropdown() {
       dropdownDevicesContent,
       ".dropdown-2__content a"
     );
+    deleteSearchInputDevices.classList.add("cross-icon-none");
   });
 
   deviceInput.addEventListener("keyup", (event) => {
@@ -105,6 +107,7 @@ export function dropdown() {
       dropdownUstensilsContent,
       ".dropdown-3__content a"
     );
+    deleteSearchInputUstensils.classList.add("cross-icon-none");
   });
 
   ustensilInput.addEventListener("keyup", (event) => {
