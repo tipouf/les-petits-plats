@@ -59,14 +59,14 @@ function searchRecipes(recipes) {
   searchInput.addEventListener("input", handleInput);
   crossIcon.addEventListener("click", handleReset);
 
-function handleInput() {
-  reset();
-  const searchText = searchInput.value.toLowerCase();
-  const filteredRecipes = filterRecipes(recipes, searchText);
-  const displayStyle = filteredRecipes.length === 0 ? "none" : "flex";
-  filterContainer.style.display = displayStyle;
-  advancedSearch(filteredRecipes);
-}
+  function handleInput() {
+    reset();
+    searchText = searchInput.value.toLowerCase();
+    const filteredRecipes = filterRecipes(recipes, searchText);
+    const displayStyle = filteredRecipes.length === 0 ? "none" : "flex";
+    filterContainer.style.display = displayStyle;
+    advancedSearch(filteredRecipes);
+  }
 
   function handleReset() {
     reset();
@@ -114,7 +114,6 @@ function advancedSearch(recipes) {
 }
 
 const createDropdownItem = (text, type) => {
-
   const a = document.createElement("a");
   a.setAttribute("tabindex", "0");
   a.setAttribute("data-type", type);
@@ -231,7 +230,7 @@ const createDropdownItem = (text, type) => {
             `.dropdown-3__content__grid a[data-value="${tag.textContent}"]`
           );
           dropdownItem.classList.remove("selected");
- 
+
           // Update dropdown, number of recipes and recipes
           updateDropdownList(getFilteredResults());
           numberOfRecipesDOM(getFilteredResults());
@@ -281,7 +280,11 @@ function handleTagClick(tag, selectedArray, dropdownQuery) {
 
 // Update dropdown list
 function updateDropdownList(list) {
-  appendItems(dropdownIngredientsContent, getIngredientsList(list),"ingredient");
+  appendItems(
+    dropdownIngredientsContent,
+    getIngredientsList(list),
+    "ingredient"
+  );
   appendItems(dropdownDevicesContent, getDevicesList(list), "device");
   appendItems(dropdownUstensilsContent, getUstensilsList(list), "ustensil");
 }
@@ -303,7 +306,7 @@ function displayRecipes(recipes) {
     const noRecipe = document.createElement("p");
     noRecipe.classList.add("no-recipe");
 
-    noRecipe.textContent = `Aucune recette ne contient "${searchText}", vous pouvez chercher "tarte aux pommes", "poisson", etc...`; 
+    noRecipe.textContent = `Aucune recette ne contient "${searchText}", vous pouvez chercher "tarte aux pommes", "poisson", etc...`;
     recipesSection.appendChild(noRecipe);
   } else {
     recipesSection.innerHTML = "";
