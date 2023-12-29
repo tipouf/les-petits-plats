@@ -77,17 +77,32 @@ function filterRecipes(recipes, searchText) {
 
   const searchTextArray = searchText.split(" ");
 
-  return recipes.filter((recipe) => {
-    return searchTextArray.every((text) => {
-      return (
-        recipe.name.toLowerCase().includes(text) ||
-        recipe.description.toLowerCase().includes(text) ||
-        recipe.ingredients.some((ingredient) =>
-          ingredient.ingredient.toLowerCase().includes(text)
+  const filteredRecipes = [];
+
+  for (const recipe of recipes) {
+    let includesText = true;
+
+    for (const text of searchTextArray) {
+      if (
+        !(
+          recipe.name.toLowerCase().includes(text) ||
+          recipe.description.toLowerCase().includes(text) ||
+          recipe.ingredients.some((ingredient) =>
+            ingredient.ingredient.toLowerCase().includes(text)
+          )
         )
-      );
-    });
-  });
+      ) {
+        includesText = false;
+        break;
+      }
+    }
+
+    if (includesText) {
+      filteredRecipes.push(recipe);
+    }
+  }
+
+  return filteredRecipes;
 }
 
 // advanced filter
@@ -160,14 +175,9 @@ const createDropdownItem = (text, type) => {
       tag.textContent = ingredient;
       tag.addEventListener("click", () => {
         if (selectedIngredients.includes(tag.textContent)) {
-          selectedIngredients.splice(
-            selectedIngredients.indexOf(tag.textContent),
-            1
-          );
+          selectedIngredients.splice(selectedIngredients.indexOf(tag.textContent),1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-1__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-1__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
@@ -188,9 +198,7 @@ const createDropdownItem = (text, type) => {
         if (selectedDevices.includes(tag.textContent)) {
           selectedDevices.splice(selectedDevices.indexOf(tag.textContent), 1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-2__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-2__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
@@ -209,14 +217,9 @@ const createDropdownItem = (text, type) => {
       tag.textContent = ustensil;
       tag.addEventListener("click", () => {
         if (selectedUstensils.includes(tag.textContent)) {
-          selectedUstensils.splice(
-            selectedUstensils.indexOf(tag.textContent),
-            1
-          );
+          selectedUstensils.splice(selectedUstensils.indexOf(tag.textContent),1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-3__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-3__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
@@ -237,26 +240,7 @@ const createDropdownItem = (text, type) => {
 
 // Update number of recipes
 function numberOfRecipesDOM(recipes) {
-  numberOfRecipes.textContent = `${recipes.length} recette${
-    recipes.length > 1 ? "s" : ""
-  }`;
-}
-
-// Handle tag click and update dropdown list
-function handleTagClick(tag, selectedArray, dropdownQuery) {
-  if (selectedArray.includes(tag.textContent)) {
-    selectedArray.splice(selectedArray.indexOf(tag.textContent), 1);
-    tagContainer.removeChild(tag);
-    const dropdownItem = document.querySelector(
-      `${dropdownQuery} a[data-value="${tag.textContent}"]`
-    );
-    dropdownItem.classList.remove("selected");
-  } else {
-    selectedArray.push(tag.textContent);
-    tagContainer.appendChild(tag);
-  }
-
-  updateAll(getFilteredResults());
+  numberOfRecipes.textContent = `${recipes.length} recette${recipes.length > 1 ? "s" : ""}`;
 }
 
 // update dropdown, number of recipes and recipes
@@ -304,37 +288,42 @@ function displayRecipes(recipes) {
 
 // Get filtered results
 function getFilteredResults() {
-  return filteredRecipes.filter((recipe) => {
+  const results = [];
+  
+  for (const recipe of filteredRecipes) {
     if (
       selectedIngredients.length === 0 &&
       selectedDevices.length === 0 &&
       selectedUstensils.length === 0
     ) {
-      return filteredRecipes;
+      results.push(recipe);
     } else {
-      return (
-        selectedIngredients.every((ingredient) =>
-          recipe.ingredients.some(
-            (recipeIngredient) =>
-              normalizeAndLowerCase(recipeIngredient.ingredient) ===
-              normalizeAndLowerCase(ingredient)
-          )
-        ) &&
-        selectedDevices.every(
-          (device) =>
-            normalizeAndLowerCase(recipe.appliance) ===
-            normalizeAndLowerCase(device)
-        ) &&
-        selectedUstensils.every((ustensil) =>
-          recipe.ustensils.some(
-            (recipeUstensil) =>
-              normalizeAndLowerCase(recipeUstensil) ===
-              normalizeAndLowerCase(ustensil)
-          )
+      const ingredientMatch = selectedIngredients.every((ingredient) =>
+        recipe.ingredients.some(
+          (recipeIngredient) =>
+            normalizeAndLowerCase(recipeIngredient.ingredient) ===
+            normalizeAndLowerCase(ingredient)
         )
       );
+      const deviceMatch = selectedDevices.every(
+        (device) =>
+          normalizeAndLowerCase(recipe.appliance) ===
+          normalizeAndLowerCase(device)
+      );
+      const ustensilMatch = selectedUstensils.every((ustensil) =>
+        recipe.ustensils.some(
+          (recipeUstensil) =>
+            normalizeAndLowerCase(recipeUstensil) ===
+            normalizeAndLowerCase(ustensil)
+        )
+      );
+
+      if (ingredientMatch && deviceMatch && ustensilMatch) {
+        results.push(recipe);
+      }
     }
-  });
+  }
+  return results;
 }
 
 init();
