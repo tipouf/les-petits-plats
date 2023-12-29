@@ -16,15 +16,9 @@ let filteredRecipes = [];
 let searchText = "";
 
 // DOM
-const dropdownIngredientsContent = document.querySelector(
-  ".dropdown-1__content__grid"
-);
-const dropdownDevicesContent = document.querySelector(
-  ".dropdown-2__content__grid"
-);
-const dropdownUstensilsContent = document.querySelector(
-  ".dropdown-3__content__grid"
-);
+const dropdownIngredientsContent = document.querySelector(".dropdown-1__content__grid");
+const dropdownDevicesContent = document.querySelector(".dropdown-2__content__grid");
+const dropdownUstensilsContent = document.querySelector(".dropdown-3__content__grid");
 const searchInput = document.querySelector(".search__input");
 const recipesSection = document.querySelector(".recipes-container");
 const filterContainer = document.querySelector(".filter-container");
@@ -108,9 +102,7 @@ function advancedSearch(recipes) {
 
   recipesSection.appendChild(noRecipe);
 
-  updateDropdownList(filteredRecipes);
-  numberOfRecipesDOM(filteredRecipes);
-  displayRecipes(filteredRecipes);
+  updateAll(filteredRecipes);
 }
 
 const createDropdownItem = (text, type) => {
@@ -179,9 +171,7 @@ const createDropdownItem = (text, type) => {
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedIngredients.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -204,9 +194,7 @@ const createDropdownItem = (text, type) => {
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedDevices.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -232,9 +220,7 @@ const createDropdownItem = (text, type) => {
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedUstensils.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -243,10 +229,7 @@ const createDropdownItem = (text, type) => {
       tagContainer.appendChild(tag);
     });
 
-    // Update dropdown, number of recipes and recipes
-    updateDropdownList(getFilteredResults());
-    numberOfRecipesDOM(getFilteredResults());
-    displayRecipes(getFilteredResults());
+    updateAll(getFilteredResults());
   });
 
   return a;
@@ -273,18 +256,19 @@ function handleTagClick(tag, selectedArray, dropdownQuery) {
     tagContainer.appendChild(tag);
   }
 
-  updateDropdownList(getFilteredResults());
-  numberOfRecipesDOM(getFilteredResults());
-  displayRecipes(getFilteredResults());
+  updateAll(getFilteredResults());
+}
+
+// update dropdown, number of recipes and recipes
+function updateAll(results) {
+  updateDropdownList(results);
+  numberOfRecipesDOM(results);
+  displayRecipes(results);
 }
 
 // Update dropdown list
 function updateDropdownList(list) {
-  appendItems(
-    dropdownIngredientsContent,
-    getIngredientsList(list),
-    "ingredient"
-  );
+  appendItems(dropdownIngredientsContent, getIngredientsList(list), "ingredient");
   appendItems(dropdownDevicesContent, getDevicesList(list), "device");
   appendItems(dropdownUstensilsContent, getUstensilsList(list), "ustensil");
 }
