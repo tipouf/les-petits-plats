@@ -162,7 +162,6 @@ const getIngredientsList = (list) => [
 ];
 
 const getDevicesList = (list) => {
-  console.log("list", list);
 return [
   ...new Set(list.map(({ appliance }) => normalizeAndLowerCase(appliance))),
 ];
