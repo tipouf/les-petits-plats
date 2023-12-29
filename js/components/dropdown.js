@@ -1,34 +1,17 @@
 import { removeAccents, normalizeAndLowerCase } from "../utils/utils.js";
 
 export function dropdown() {
-  const dropdownBtnIngredients = document.querySelector(
-    ".dropdown-1__btn-container"
-  );
-  const dropdownBtnDevices = document.querySelector(
-    ".dropdown-2__btn-container"
-  );
-  const dropdownBtnUstensils = document.querySelector(
-    ".dropdown-3__btn-container"
-  );
+  const dropdownBtnIngredients = document.querySelector(".dropdown-1__btn-container");
+  const dropdownBtnDevices = document.querySelector(".dropdown-2__btn-container");
+  const dropdownBtnUstensils = document.querySelector(".dropdown-3__btn-container");
   const dropdownDevicesContent = document.querySelector(".dropdown-2__content");
-  const deleteSearchInputIngredients = document.querySelector(
-    ".dropdown-1__content__inputContainer__crossIcon"
-  );
-
-  const deleteSearchInputDevices = document.querySelector(
-    ".dropdown-2__content__inputContainer__crossIcon"
-  );
-  const deleteSearchInputUstensils = document.querySelector(
-    ".dropdown-3__content__inputContainer__crossIcon"
-  );
+  const deleteSearchInputIngredients = document.querySelector(".dropdown-1__content__inputContainer__crossIcon");
+  const deleteSearchInputDevices = document.querySelector(".dropdown-2__content__inputContainer__crossIcon");
+  const deleteSearchInputUstensils = document.querySelector(".dropdown-3__content__inputContainer__crossIcon");
   let resetInput = { target: { value: "" } };
 
-  const dropdownUstensilsContent = document.querySelector(
-    ".dropdown-3__content"
-  );
-  const dropdownIngredientsContent = document.querySelector(
-    ".dropdown-1__content"
-  );
+  const dropdownUstensilsContent = document.querySelector(".dropdown-3__content");
+  const dropdownIngredientsContent = document.querySelector(".dropdown-1__content");
   const ingredientInput = document.querySelector("#myIngredientInput");
   const deviceInput = document.querySelector("#myDeviceInput");
   const ustensilInput = document.querySelector("#myUstensilInput");
@@ -42,11 +25,7 @@ export function dropdown() {
 
   deleteSearchInputIngredients.addEventListener("click", () => {
     ingredientInput.value = "";
-    filterDropdown(
-      resetInput,
-      dropdownIngredientsContent,
-      ".dropdown-1__content a"
-    );
+    filterDropdown(resetInput, dropdownIngredientsContent,".dropdown-1__content a");
     deleteSearchInputIngredients.classList.add("cross-icon-none");
   });
 
@@ -57,11 +36,7 @@ export function dropdown() {
       deleteSearchInputIngredients.classList.remove("cross-icon-none");
     }
 
-    return filterDropdown(
-      event,
-      dropdownIngredientsContent,
-      ".dropdown-1__content a"
-    );
+    return filterDropdown(event, dropdownIngredientsContent, ".dropdown-1__content a");
   });
 
   dropdownBtnDevices.addEventListener("click", () =>
@@ -70,11 +45,7 @@ export function dropdown() {
 
   deleteSearchInputDevices.addEventListener("click", () => {
     deviceInput.value = "";
-    filterDropdown(
-      resetInput,
-      dropdownDevicesContent,
-      ".dropdown-2__content a"
-    );
+    filterDropdown( resetInput, dropdownDevicesContent, ".dropdown-2__content a");
     deleteSearchInputDevices.classList.add("cross-icon-none");
   });
 
@@ -85,11 +56,7 @@ export function dropdown() {
       deleteSearchInputDevices.classList.remove("cross-icon-none");
     }
 
-    return filterDropdown(
-      event,
-      dropdownDevicesContent,
-      ".dropdown-2__content a"
-    );
+    return filterDropdown(event, dropdownDevicesContent, ".dropdown-2__content a");
   });
 
   deviceInput.addEventListener("keyup", (event) =>
@@ -102,11 +69,7 @@ export function dropdown() {
 
   deleteSearchInputUstensils.addEventListener("click", () => {
     ustensilInput.value = "";
-    filterDropdown(
-      resetInput,
-      dropdownUstensilsContent,
-      ".dropdown-3__content a"
-    );
+    filterDropdown( resetInput, dropdownUstensilsContent, ".dropdown-3__content a");
     deleteSearchInputUstensils.classList.add("cross-icon-none");
   });
 
@@ -117,11 +80,7 @@ export function dropdown() {
       deleteSearchInputUstensils.classList.remove("cross-icon-none");
     }
 
-    return filterDropdown(
-      event,
-      dropdownUstensilsContent,
-      ".dropdown-3__content a"
-    );
+    return filterDropdown(event, dropdownUstensilsContent, ".dropdown-3__content a");
   });
 
   ustensilInput.addEventListener("keyup", (event) =>
