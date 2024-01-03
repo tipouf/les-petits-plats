@@ -31,7 +31,7 @@ function init() {
   search(); // Initialize search
 
   searchRecipes(recipes);
-  advancedSearch(recipes);
+  updateAll(recipes);
 }
 
 function reset() {
@@ -59,7 +59,7 @@ function searchRecipes(recipes) {
     const filteredRecipes = filterRecipes(recipes, searchText);
     const displayStyle = filteredRecipes.length === 0 ? "none" : "flex";
     filterContainer.style.display = displayStyle;
-    advancedSearch(filteredRecipes);
+    updateAll(filteredRecipes);
   }
 
   function handleReset() {
@@ -69,7 +69,14 @@ function searchRecipes(recipes) {
   }
 }
 
-// filter recipes based on searchInput
+
+/**
+ * Filters an array of recipes based on a search text.
+ *
+ * @param {Array} recipes - The array of recipes to filter.
+ * @param {string} searchText - The search text to filter the recipes by.
+ * @return {Array} The filtered array of recipes.
+ */
 function filterRecipes(recipes, searchText) {
   if (searchText.length <= 2) {
     return recipes;
@@ -103,21 +110,6 @@ function filterRecipes(recipes, searchText) {
   }
 
   return filteredRecipes;
-}
-
-// advanced filter
-function advancedSearch(recipes) {
-  filteredRecipes = recipes;
-
-  recipesSection.innerHTML = "";
-
-  const noRecipe = document.createElement("p");
-  noRecipe.classList.add("no-recipe");
-  noRecipe.textContent = "Aucune recette ne correspond à votre critère...";
-
-  recipesSection.appendChild(noRecipe);
-
-  updateAll(filteredRecipes);
 }
 
 const createDropdownItem = (text, type) => {
@@ -286,7 +278,12 @@ function displayRecipes(recipes) {
   }
 }
 
-// Get filtered results
+
+/**
+ * Generates the filtered results based on the selected ingredients, devices, and ustensils.
+ *
+ * @return {Array} An array of filtered recipe results.
+ */
 function getFilteredResults() {
   const results = [];
   
