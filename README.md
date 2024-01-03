@@ -1,28 +1,39 @@
 # les-petits-plats
 
 # JS
-https://github.com/OpenClassrooms-Student-Center/PetitsPlats2.0
+
+[github openclassRooms](https://github.com/OpenClassrooms-Student-Center/PetitsPlats2.0)
 
 # IMAGES
 
-https://course.oc-static.com/projects/516_JS/P7/Photos+P7+JS+Les+petits+plats.zip
+[Bibliothèque d'images](https://course.oc-static.com/projects/516_JS/P7/Photos+P7+JS+Les+petits+plats.zip)
 
 # CAS D'UTILISATION de RECHERCHE
 
-https://course.oc-static.com/projects/516_JS/P7/Cas+d%E2%80%99utilisation+%2303+_+Filtrer+les+recettes+dans+l%E2%80%99interface+utilisateur+-+Front-end+P6+(Algorithms)+.pdf
+[cas d'utilisation de la recherche](https://course.oc-static.com/projects/516_JS/P7/Cas+d%E2%80%99utilisation+%2303+_+Filtrer+les+recettes+dans+l%E2%80%99interface+utilisateur+-+Front-end+P6+(Algorithms)+.pdf)
 
 
 # MAQUETTE FIGMA (original)
 
-https://www.figma.com/file/LY5VQTAqnrAf0bWObOBrt8/Les-petits-plats---Maquette-2.0?type=design&node-id=0%3A1&t=23dNyQrjg9DVtnrM-1
+[maquette figma](https://www.figma.com/file/LY5VQTAqnrAf0bWObOBrt8/Les-petits-plats---Maquette-2.0?type=design&node-id=0%3A1&t=23dNyQrjg9DVtnrM-1)
 
 # MAQUETTE FIGMA (copy)
 
-https://www.figma.com/file/loy9NRlBMDxImAkp7dogM7/Les-petits-plats---Maquette-2.0-(Copy)?type=design&node-id=0-1&mode=design&t=HteJ5NtZSVpEHKgV-0
+[ma copie de la maquette figma](
+https://www.figma.com/file/loy9NRlBMDxImAkp7dogM7/Les-petits-plats---Maquette-2.0-(Copy)?type=design&node-id=0-1&mode=design&t=HteJ5NtZSVpEHKgV-0)
 
 # FICHE D'INVESTIGATION DE FONCTIONNALITE
 
-https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Fiche+d%E2%80%99investigation+fonctionnalite%CC%81.pdf
+[exemple de fiche d'investigation](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Fiche+d%E2%80%99investigation+fonctionnalite%CC%81.pdf)
 
 
 
+
+[JSBENCH](https://jsben.ch/ny2Fd)
+
+[recherche principal](
+https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram1#R7Vpdk9smFP01fuyOJPTlx42923Ymm0m77SR5xBZrkZGFi9Dazq8vGPQFeK2sLWvT9MGyuEII3XvO4QKagNl69yuFm%2FSBJCibeE6ym4D5xPPCMOJHYdhLA4hdaVhRnEhTy%2FCIvyFldJS1xAkqOhUZIRnDm65xSfIcLVnHBikl2261J5J1n7qBK2QYHpcwM62fcMJSaY29qLH%2FhvAqrZ7shlN5ZQ2ryupNihQmZNsygbsJmFFCmDxb72YoE76r%2FCLvuz9yte4YRTnrc8M%2FD9l84fxNQPQh%2FvTn%2B4fo8x%2FPv3iylWeYleqF55MZmNxOFyVT3Wb7yhe8Pe52Xni3TTFDjxu4FFe2PPDclrJ1xksuP1WNIsrQ7mhv3doHHDuIrBGje16lugEot20br7uOsqUtj%2FvKBlWgV3VTjS%2F4iXLHd7gmNFxzlzOKKLeVuQgwDxzHXSb9JSAO84L%2FZZAfvpEcCZM4ULRMEeU%2Fw6GUlHmCRCec6zi1wuL%2BBSd7FieHQzk5Npxsoi5PbgWReWmZwaLAy65fuk5EO8w%2Bi%2FObQJW%2BqHrifL5rVZvvVUE%2BEiWGEmh%2B5d0iJV2iF97HB0qjIF0hdgpdZqBagQgscahsFGWQ4eduf23BUU%2F4SHDOWjiINRw4Wnzle6q72pqiNQS0hrxYa0j6wWjogJX6tV8PHw%2BYcOFhfFRFQllKViSH2V1j1QDT1HlPyEZh5StibK8GI1gy0kXcazDGkUT3rZtE8Uv7WnPboTQANqsh9SQ2Xc8Ozt6oO0sSqm62NOHDQugqjwnlqYAXZrzz7xZciMMVO7gohGshloeSuHUC7k2tTcl6URbX0Vlfo4VFZ2MLvXX2XM6n7n9MZ8O%2BUHbsgbqOzgLQxUFd%2FtF0tur329fZS%2BrluTJoj2Uc3DjTQIRUHqNOZEM9nx04sq45A%2Fg9X2Zl0UpoRRJrym5O1lWGe0h5zRo88eXxRWOrsU7CwJL0uhYRqI0Xl2Nv%2BjPSCQxCJzea3sRB5PqePEbxuHwCp%2FkETaokqFhSvGGY5GPTxfWCjgd92yTxynyJf0a%2B%2BIPwxYu64487Ll18O11Ye%2Fix5Pw4X1GUYO7UYmy%2BeNqiSuCOzxfX8MgV%2BeK22NJw5%2B1Oi5XcnZ5LnDuAnTeFCwymmEHuu0ALi41cLH%2FCOxHyISa9vmPhgY0Gg7HA4qD%2FWXAMXnFfFpw7LJ3Hgj4LxmOygE8vuiyIx2ZB%2BKOw4IJo9vyeaJa57lho9szs542hWcttvDAYGc3RmGgeaSZwNkiPzAS04IbTfrn%2FLaVw36q2ERWK48%2BpEwHtOQ0OZIuX3Rky06UHfcOWUR5%2F8elASc3N7iKFG3HKAwazDGVkReGax3WDKOadQ1S%2F9rG5cIqqB4YqtF1qkUvLvoAt%2B7Jt7epL0hejKjD3HGZ8VobFxvhMPPDpCR82xeUMz6EyLkWZMSjg5CARrvXhKNYXv%2FIw1ZUTHrqEbPPCiNu199RDDdy%2B6fd62f86fh9wT92PQVsAbxwnejmx5YUWLy4tjOBIaK6zu%2BNpuhZ5Wkj77u7oQhzpw%2BfQuztTAzH3OH99JnIBVrnTIy5phTa0hHawr4F827ouZhhmuIBy2fbWXKb6i5QM1YtYjtoQKQ7YPiBAiqBSvtG1TP8%2BKOw5hgSDef3iWtZXfUb7NEdsZ%2FidKOiY7isrlqb077heLSy82Hy5KKs3n3%2BCu38B)
+
+
+[diagramme recherche par dropdown](
+https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram2#R7Vpbc6M2FP41TJ82gxBg85jrbmfanW2Tme32TQHFKAVEhYjt%2FvpKQpiLsMPGF5yZPNgjHSQhnXO%2Bcz4d24LX6eozQ3n8O41wYjl2tLLgjeU4cxCIbylYVwLX14IFI1ElAo3gnvyHtdDW0pJEuOgM5JQmnORdYUizDIe8I0OM0WV32BNNum%2FN0QIbgvsQJab0O4l4rI%2FlzBr5F0wWcf1mUJ8vRfVgfZIiRhFdtkTw1oLXjFJetdLVNU6k7mq9VPPutjzdbIzhjI%2BZ8MfX5UPx9f6fO%2B9P7yV6iNjfd%2BiTXuUFJaU%2B8I11Da3L4LHkett8XetCrCfULjpXy5hwfJ%2BjUD5ZCsMLWczTRPSAaOpFMeN4tXW3YKMD4TuYppiztRiiJ8y8aoZ2G18rcdnYANhaFrf072oZ0mZfbBZuNCMaWjk%2FoSjH1EYkHEV3KeMxXdAMJbeN9IrRMouwXNUWvWbMb5TmWlPPmPO19npUctrVI14R%2FpecfuHp3o%2FWk5uVXll11nUnE8dtTZLdH%2B1nzTTVq%2BdV55OH2m0xgT%2FEFpjv0NV82LIMJ4iTl%2B76Q4bSU79RIt688QjgBReBDR3Hm9u%2B6wG%2F4yAO7Fm%2B2qVeow2L%2FrIze%2FdCBS1ZiI2FlBdtTvd2x4IfjlWLKk3v0JU70gH9PR1wr0jhGiH114xwghJSiLfTzIKXluMnYv9Xj0y0FrL1QEsu0pxjJ%2Bqb4VDYTzVpacnA3p9gjCNFUapGhOUyqHoaYyY%2BUt2MZCHJZV6TilYIQE9PJIyreF8Ybth1suNHfK8b8QEcCPnuQMifHSvke4YhTahm0aUkGaIXJqgoSNhVS1eH7xR1Y8O%2BO2zelv28AfPVsj2zgxP0wrg9LowbC0G3uxDwxiWWQ%2BUD%2Fy3hg%2BE0FwMKSWZlBFBxgNFcEM5MtnGmuG8WqhXqEa3ocV6hwO2Ggg2FbocCf8CX%2FGOFgtlHkh4dLuYjwwXYEi%2F2pYkz%2B8KxA2g7UKSUOXC7PNEFp4Xz3IBzmJB%2FS5WFS4Ffu5R4FIBKBZZRKrGUPRa5Mkkf5dEvanANbBOmMU0fy%2BIkEPW7URLaAxCFAxANjgXRYEqIghZAG7i%2BAlHQAWiD1xNkdHu%2FlP5zEBUMCa1bA3KJtWI7giHs%2BZZOB1szdm888L2eN1U7OCiuaxXuZIdj6yWoyKva1RNZSXc8BEBB0NfiUAnFBGg%2FPh4MoMCsNaWkkIFQ3lWeqYqGzeVF0BnekJkWVcF8iOJMzFhAV9k%2BMJXtBqdkLJuq4wdlGREPxxYWqmr2VJUFYJYWKuIg4PAsMWNShgInWJH%2BrOL25ggL3k1KJHrXfncAOYPX%2FvnRkAMMfZwpkzgkAryxCJhNioAxNZlps27Pneur7FRZF05bX57Im2cjvRk6k3rzzPBmJHiQ4jel2v5CNpEq4QyQIvF8euYDezdBbyiAD90Ej0Z96p%2BcW2pVVe9KnbiQ%2BsVZgl%2FqlLiVdZ6Fgn3vdf06p9QvfI%2FUcu62ueUn%2B8J2NvfvLQRT9b5hRoTaMJswSoEtDnKaKAUn5UNvNLfgh%2Bdn7%2BB92Nt9L4zhDCpp0Blr00lvjvU2XylDqww5cbpzetU8b%2BDHn6FKyhv%2B%2BSO6zd%2BvqsJg8x82ePs%2F)
