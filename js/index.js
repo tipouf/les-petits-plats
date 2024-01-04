@@ -12,7 +12,7 @@ import { normalizeAndLowerCase } from "./utils/utils.js";
 let selectedIngredients = [];
 let selectedDevices = [];
 let selectedUstensils = [];
-let filteredRecipes = [];
+let filteredRecipes = recipes;
 let searchText = "";
 
 // DOM
