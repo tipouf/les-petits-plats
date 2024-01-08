@@ -12,32 +12,26 @@ import { normalizeAndLowerCase } from "./utils/utils.js";
 let selectedIngredients = [];
 let selectedDevices = [];
 let selectedUstensils = [];
-let filteredRecipes = [];
+let filteredRecipes = recipes;
+let searchText = "";
 
 // DOM
-const dropdownIngredientsContent = document.querySelector(
-  ".dropdown-1__content__grid"
-);
-const dropdownDevicesContent = document.querySelector(
-  ".dropdown-2__content__grid"
-);
-const dropdownUstensilsContent = document.querySelector(
-  ".dropdown-3__content__grid"
-);
+const dropdownIngredientsContent = document.querySelector(".dropdown-1__content__grid");
+const dropdownDevicesContent = document.querySelector(".dropdown-2__content__grid");
+const dropdownUstensilsContent = document.querySelector(".dropdown-3__content__grid");
 const searchInput = document.querySelector(".search__input");
-const searchButton = document.querySelector(".search__button");
-const crossIcon = document.querySelector(".cross-icon");
 const recipesSection = document.querySelector(".recipes-container");
 const filterContainer = document.querySelector(".filter-container");
 const tagContainer = document.querySelector(".tag-container");
 const numberOfRecipes = document.querySelector(".number-of-recipes");
+const crossIcon = document.querySelector(".cross-icon");
 
 function init() {
   dropdown(); // Initialize dropdown
   search(); // Initialize search
 
   searchRecipes(recipes);
-  advancedSearch(recipes);
+  updateAll(recipes);
 }
 
 function reset() {
@@ -55,32 +49,34 @@ function reset() {
   updateDropdownList(filteredRecipes);
 }
 
-// main search
 function searchRecipes(recipes) {
-  searchInput.addEventListener("keyup", (event) => {
-    event.preventDefault();
-    if (event.key === "Enter") {
-      const searchText = event.target.value.toLowerCase();
-      filteredRecipes = filterRecipes(recipes, searchText);
-      reset();
-      searchButton.click();
-    }
-  });
+  searchInput.addEventListener("input", handleInput);
+  crossIcon.addEventListener("click", handleReset);
 
-  searchButton.addEventListener("click", () => {
+  function handleInput() {
     reset();
-    const searchText = searchInput.value.toLowerCase();
-    filteredRecipes = filterRecipes(recipes, searchText);
-    if (filteredRecipes.length === 0) {
-      filterContainer.style.display = "none";
-    } else {
-      filterContainer.style.display = "flex";
-    }
-    advancedSearch(filteredRecipes);
-  });
+    searchText = searchInput.value.toLowerCase();
+    const filteredRecipes = filterRecipes(recipes, searchText);
+    const displayStyle = filteredRecipes.length === 0 ? "none" : "flex";
+    filterContainer.style.display = displayStyle;
+    updateAll(filteredRecipes);
+  }
+
+  function handleReset() {
+    reset();
+    filterContainer.style.display = "flex";
+    numberOfRecipesDOM(recipes);
+  }
 }
 
-// main filter
+
+/**
+ * Filters the array of recipes based on the provided search text.
+ *
+ * @param {Array} recipes - The array of recipes to filter.
+ * @param {string} searchText - The search text used for filtering the recipes.
+ * @return {Array} - The filtered array of recipes.
+ */
 function filterRecipes(recipes, searchText) {
   if (searchText.length <= 2) {
     return recipes;
@@ -101,25 +97,7 @@ function filterRecipes(recipes, searchText) {
   });
 }
 
-// advanced filter
-function advancedSearch(recipes) {
-  filteredRecipes = recipes;
-
-  recipesSection.innerHTML = "";
-
-  const noRecipe = document.createElement("p");
-  noRecipe.classList.add("no-recipe");
-  noRecipe.textContent = "Aucune recette ne correspond à votre critère...";
-
-  recipesSection.appendChild(noRecipe);
-
-  updateDropdownList(filteredRecipes);
-  numberOfRecipesDOM(filteredRecipes);
-  displayRecipes(filteredRecipes);
-}
-
 const createDropdownItem = (text, type) => {
-  const tagContainer = document.querySelector(".tag-container");
   const a = document.createElement("a");
   a.setAttribute("tabindex", "0");
   a.setAttribute("data-type", type);
@@ -174,20 +152,13 @@ const createDropdownItem = (text, type) => {
       tag.textContent = ingredient;
       tag.addEventListener("click", () => {
         if (selectedIngredients.includes(tag.textContent)) {
-          selectedIngredients.splice(
-            selectedIngredients.indexOf(tag.textContent),
-            1
-          );
+          selectedIngredients.splice(selectedIngredients.indexOf(tag.textContent),1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-1__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-1__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedIngredients.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -204,15 +175,11 @@ const createDropdownItem = (text, type) => {
         if (selectedDevices.includes(tag.textContent)) {
           selectedDevices.splice(selectedDevices.indexOf(tag.textContent), 1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-2__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-2__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
 
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedDevices.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -227,20 +194,13 @@ const createDropdownItem = (text, type) => {
       tag.textContent = ustensil;
       tag.addEventListener("click", () => {
         if (selectedUstensils.includes(tag.textContent)) {
-          selectedUstensils.splice(
-            selectedUstensils.indexOf(tag.textContent),
-            1
-          );
+          selectedUstensils.splice(selectedUstensils.indexOf(tag.textContent),1);
           tagContainer.removeChild(tag);
-          const dropdownItem = document.querySelector(
-            `.dropdown-3__content__grid a[data-value="${tag.textContent}"]`
-          );
+          const dropdownItem = document.querySelector(`.dropdown-3__content__grid a[data-value="${tag.textContent}"]`);
           dropdownItem.classList.remove("selected");
- 
+
           // Update dropdown, number of recipes and recipes
-          updateDropdownList(getFilteredResults());
-          numberOfRecipesDOM(getFilteredResults());
-          displayRecipes(getFilteredResults());
+          updateAll(getFilteredResults());
         } else {
           selectedUstensils.push(tag.textContent);
           tagContainer.appendChild(tag);
@@ -249,49 +209,34 @@ const createDropdownItem = (text, type) => {
       tagContainer.appendChild(tag);
     });
 
-    // Update dropdown, number of recipes and recipes
-    updateDropdownList(getFilteredResults());
-    numberOfRecipesDOM(getFilteredResults());
-    displayRecipes(getFilteredResults());
+    updateAll(getFilteredResults());
   });
 
   return a;
 };
 
+// Update number of recipes
 function numberOfRecipesDOM(recipes) {
   numberOfRecipes.textContent = `${recipes.length} recette${
     recipes.length > 1 ? "s" : ""
   }`;
 }
 
-function handleTagClick(tag, selectedArray, dropdownQuery) {
-  if (selectedArray.includes(tag.textContent)) {
-    selectedArray.splice(selectedArray.indexOf(tag.textContent), 1);
-    tagContainer.removeChild(tag);
-    const dropdownItem = document.querySelector(
-      `${dropdownQuery} a[data-value="${tag.textContent}"]`
-    );
-    dropdownItem.classList.remove("selected");
-  } else {
-    selectedArray.push(tag.textContent);
-    tagContainer.appendChild(tag);
-  }
-
-  updateDropdownList(getFilteredResults());
-  numberOfRecipesDOM(getFilteredResults());
-  displayRecipes(getFilteredResults());
+// update dropdown, number of recipes and recipes
+function updateAll(results) {
+  updateDropdownList(results);
+  numberOfRecipesDOM(results);
+  displayRecipes(results);
 }
 
+// Update dropdown list
 function updateDropdownList(list) {
-  appendItems(
-    dropdownIngredientsContent,
-    getIngredientsList(list),
-    "ingredient"
-  );
+  appendItems(dropdownIngredientsContent, getIngredientsList(list), "ingredient");
   appendItems(dropdownDevicesContent, getDevicesList(list), "device");
   appendItems(dropdownUstensilsContent, getUstensilsList(list), "ustensil");
 }
 
+// Append items to dropdown
 function appendItems(dropdownContent, items, type) {
   dropdownContent.innerHTML = "";
   items.forEach((item) => {
@@ -302,17 +247,17 @@ function appendItems(dropdownContent, items, type) {
 }
 
 function displayRecipes(recipes) {
-  const recipesSection = document.querySelector(".recipes-container");
-
   if (recipes.length === 0) {
     recipesSection.innerHTML = "";
+    recipesSection.classList.remove("recipes-container");
     const noRecipe = document.createElement("p");
     noRecipe.classList.add("no-recipe");
-    noRecipe.textContent = "Aucune recette ne correspond à votre critère...";
+
+    noRecipe.textContent = `Aucune recette ne contient "${searchText}", vous pouvez chercher "tarte aux pommes", "poisson", etc...`;
     recipesSection.appendChild(noRecipe);
   } else {
     recipesSection.innerHTML = "";
-
+    recipesSection.classList.add("recipes-container");
     recipes.forEach((recipe) => {
       const card = recipeCard(recipe);
       recipesSection.appendChild(card);
@@ -320,6 +265,12 @@ function displayRecipes(recipes) {
   }
 }
 
+
+/**
+ * Filters the results based on the selected ingredients, devices, and ustensils.
+ *
+ * @return {Array} The filtered recipes.
+ */
 function getFilteredResults() {
   return filteredRecipes.filter((recipe) => {
     if (
