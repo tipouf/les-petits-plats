@@ -55,7 +55,7 @@ function searchRecipes(recipes) {
 
   function handleInput() {
     reset();
-    searchText = searchInput.value.toLowerCase();
+    searchText = searchInput.value.trim().toLowerCase();
     const filteredRecipes = filterRecipes(recipes, searchText);
     const displayStyle = filteredRecipes.length === 0 ? "none" : "flex";
     filterContainer.style.display = displayStyle;
