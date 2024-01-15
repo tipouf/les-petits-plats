@@ -1,0 +1,7 @@
+la branche develop contient la methode filter et la branch "withLoop" contient la boucle "for of"
+
+branche develop:
+https://github.com/tipouf/les-petits-plats/tree/develop
+
+branch withLoop:
+https://github.com/tipouf/les-petits-plats/tree/withLoop
